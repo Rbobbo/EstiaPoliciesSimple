@@ -9,13 +9,12 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name ="user",
-	uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
+@Table(name ="user",uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
 public class User
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id", nullable=false, unique=true, length=11)
+	@Column(name="id", nullable=false, unique=true, length=8)
 	private int id;
 	@Column(length = 50)
 	private String logincode;
@@ -29,6 +28,8 @@ public class User
 	private String address;
 	@Column(length = 16)
 	private String taxcode;
+	@Column(name="role")
+	private String role;
 	
 	
 	public int getId() {
@@ -72,6 +73,12 @@ public class User
 	}
 	public void setTaxcode(String taxcode) {
 		this.taxcode = taxcode;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	

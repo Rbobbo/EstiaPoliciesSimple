@@ -60,7 +60,7 @@ public class SimpleSuccessHandler implements AuthenticationSuccessHandler
 		        if (isUser) {
 		            return "/home";
 		        } else if (isAdmin) {
-		            return "/console.html";
+		            return "/console";
 		        } else {
 		            throw new IllegalStateException();
 		        }

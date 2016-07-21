@@ -6,37 +6,10 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-	
-<!-- <http pattern="/resources/**" security="none"/>
-<http pattern="/login" security="none"/> -->
-	<!-- enable use-expressions -->
-	<!-- <http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/home**" access="hasRole('ROLE_ADMIN')" />
-       <intercept-url pattern="/login*" access="isAnonymous()" />
-		access denied page
-	<access-denied-handler error-page="/403" />
-		<form-login 
-		    login-page="/login" 
-		    default-target-url="/index"
-			authentication-failure-url="/login?error" 
-			username-parameter="username"
-			password-parameter="password"></form-login>
-		<logout logout-success-url="/login?logout" />
-		<csrf />
-	</http> -->
-<!-- 
-	<authentication-manager>
-		<authentication-provider user-service-ref="userDetailsServiceImpl" >
-			<password-encoder hash="bcrypt" />  
-		</authentication-provider>
-	</authentication-manager> -->
-	
-	
-	
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/login*" access="permitAll" />
 		<intercept-url pattern="/welcome*" access="permitAll" />
-		<intercept-url pattern="/**" access="isAuthenticated()" />
+		<intercept-url pattern="/home*" access="isAuthenticated()" />
 		<access-denied-handler error-page="/errorAuth" />
 		<form-login
 			login-page="/login"
@@ -45,21 +18,16 @@
 			default-target-url="/home"	
 			authentication-success-handler-ref="simpleAuthenticationSuccessHandler" />
 		<logout logout-success-url="/login?logout" />
-		
-		
-		
+		<csrf/>
 	</http>
+	
 	<authentication-manager>
-		<authentication-provider>
-		  <user-service>
-			<user name="prova1" password="password1" authorities="ROLE_USER" />
-		  </user-service>
+		<authentication-provider user-service-ref="userDetailsServiceImpl" >
 		</authentication-provider>
 	</authentication-manager>
 	
-	
-	
-	 <beans:bean id="simpleAuthenticationSuccessHandler" class="it.estia.service.SimpleSuccessHandler" />
+	<beans:bean id="userDetailsServiceImpl" class="it.estia.service.UserDetailsServiceImpl" />
+	<beans:bean id="simpleAuthenticationSuccessHandler" class="it.estia.service.SimpleSuccessHandler" />
 	
  
 </beans:beans>

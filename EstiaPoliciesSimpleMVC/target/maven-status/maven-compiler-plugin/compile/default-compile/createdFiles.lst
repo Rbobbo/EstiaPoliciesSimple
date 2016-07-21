@@ -1,4 +1,9 @@
-it\estia\controller\MainController.class
+it\estia\entity\dao\UserDAO.class
 it\estia\service\UserDetailsServiceImpl.class
+it\estia\entity\UserServiceImpl.class
+it\estia\controller\MainController.class
 it\estia\entity\User.class
+it\estia\entity\UserService.class
+it\estia\service\SimpleSuccessHandler.class
+it\estia\entity\dao\UserDAOImpl.class
 it\estia\controller\LoginController.class
