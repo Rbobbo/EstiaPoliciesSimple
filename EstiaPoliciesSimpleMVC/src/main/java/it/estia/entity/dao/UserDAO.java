@@ -12,5 +12,7 @@ public interface UserDAO
 	public User getUser(String username);
 	
 	public void addUser(User userToAdd);
+	
+	public User updateUser(User userToUpdate);
 
 }

@@ -10,14 +10,15 @@
 		<intercept-url pattern="/login*" access="permitAll" />
 		<intercept-url pattern="/welcome*" access="permitAll" />
 		<intercept-url pattern="/home*" access="isAuthenticated()" />
+		<intercept-url pattern="/profile*" access="isAuthenticated()" />
 		<access-denied-handler error-page="/errorAuth" />
 		<form-login
 			login-page="/login"
 			password-parameter="password"
 			username-parameter="username"
-			default-target-url="/home"	
+			default-target-url="/home"
 			authentication-success-handler-ref="simpleAuthenticationSuccessHandler" />
-		<logout logout-success-url="/login?logout" />
+		<logout logout-success-url="/login?logout" logout-url="/home/logout"/>
 		<csrf/>
 	</http>
 	

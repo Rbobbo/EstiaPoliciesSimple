@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.estia.entity.User;
-import it.estia.entity.UserService;
+import it.estia.entity.service.UserService;
 
 
 @Controller

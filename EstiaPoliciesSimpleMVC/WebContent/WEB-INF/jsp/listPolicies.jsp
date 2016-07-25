@@ -7,6 +7,10 @@
 <title>Polizze effettuate</title>
 </head>
 <body>
-Lista Polizze
+<h2>Lista Polizze</h2>
+
+${listPolicies.size()}
+
+
 </body>
 </html>

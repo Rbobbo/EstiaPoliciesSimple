@@ -10,7 +10,7 @@
     
 	
 	<bean id="userDetailsServiceImpl" class="it.estia.service.UserDetailsServiceImpl" >
-	<property name="userDaoImpl" ref="userDao"></property>
+		<property name="userDaoImpl" ref="userDao"></property>
 	</bean>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -27,6 +27,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>it.estia.entity.User</value>
+				<value>it.estia.entity.Policy</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -43,7 +44,11 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="userDao" class="it.estia.entity.dao.UserDAOImpl">
+	<bean id="userDao" class="it.estia.entity.dao.impl.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="policyDao" class="it.estia.entity.dao.impl.PolicyDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
