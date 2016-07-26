@@ -34,6 +34,7 @@ public class LoginController
 		userService.addUser(userToAdd);
 		
 		model.addObject("isRegistered", "true");
+		model.addObject("utenteAggiunto", userToAdd.getLogincode());
 		model.setViewName("login");
 		
 		return model;

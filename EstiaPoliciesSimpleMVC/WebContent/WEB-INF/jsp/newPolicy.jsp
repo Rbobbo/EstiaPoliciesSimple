@@ -18,7 +18,7 @@
 	<table>
 		<tr>
 			<td><label class="profileLabel" >Città : </label></td>
-			<td><input name="city" class="profileEditInput" value="cittyyyy" ></td>
+			<td><input name="city" class="profileEditInput" ></td>
 		</tr>
 		<tr>
 			<td><label class="profileLabel" >Data inizio : </label></td>
@@ -30,7 +30,7 @@
 		</tr>
 		<tr>
 			<td><label class="profileLabel" >Numero passeggeri : </label></td>
-			<td><input type="text" id="pasengernumber"  size="5"></td>
+			<td><input type="text" id="pasengernumber" name="pasengernumber" size="5"></td>
 		</tr>
 	</table>
 	<br>

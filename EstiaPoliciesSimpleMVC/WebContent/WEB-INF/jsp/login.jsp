@@ -8,7 +8,6 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <!-- -------- -->
-<script src="<c:url value="/resources/js/jquery-3.1.0.min.js" />"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login page</title>
@@ -37,31 +36,31 @@
 		</form>
 		<hr>
 		<form name="register" id="reg" action="<c:url value='/login/register' />" method="POST">
-			<h2>Oppure, <b>Registrati</b></h2>
+			<h2>Oppure, <b>Registrati!</b></h2>
 			<table>
 				<tr>
 					<td>Utente:</td>
-					<td><input type='text' class="regForm" name='logincode' value ="testatgmail"></td>
+					<td><input type='text' class="regForm" name='logincode' value =""></td>
 				</tr>
 				<tr>
 					<td>Password:</td>
-					<td><input type='password' class="regForm" name='loginpassword' value="test1234" /></td>
+					<td><input type='password' class="regForm" name='loginpassword' value="" /></td>
 				</tr>
 				<tr>
 					<td>Nome:</td>
-					<td><input type='text' class="regForm" name='name' value="nome1" /></td>
+					<td><input type='text' class="regForm" name='name' value="" /></td>
 				</tr>
 				<tr>
 					<td>Cognome:</td>
-					<td><input type='text' class="regForm" name='surname' value="cognome1" /></td>
+					<td><input type='text' class="regForm" name='surname' value="" /></td>
 				</tr>
 				<tr>
 					<td>Indirizzo:</td>
-					<td><input type='text' class="regForm" name='address' value="indirizzo1" /></td>
+					<td><input type='text' class="regForm" name='address' value="" /></td>
 				</tr>
 				<tr>
 					<td>Codice Fiscale:</td>
-					<td><input type='text' class="regForm" name='taxcode' value="123456789" /></td>
+					<td><input type='text' class="regForm" name='taxcode' value="" /></td>
 				</tr>
 				<tr>
 					<td colspan='2'><br>
@@ -72,6 +71,10 @@
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 		</form>
+	<!-- Dialog -->
+	<div id="dialogAddProfile" class="confirmDialog" style="display:none" title="Basic dialog" >
+  		<p id="dialogText" >Utente correttamente registrato</p>
+	</div>
 </body>
 <script language="Javascript">
 	var isRegJavascript = "${isRegistered}";
@@ -91,6 +94,19 @@
 		}
 	}
 	
+	/* handling dialog */
+	$( function() {
+	    $( ".confirmDialog" ).dialog({
+	      autoOpen: false
+	    });
+	 	var isOpenRegisteredConfirm = "${isRegistered}";
+	    if(isOpenRegisteredConfirm == "true")
+		{
+			$("#dialogText").text(" Utente ${utenteAggiunto} aggiunto correttamente");
+			$( "#dialogAddProfile" ).dialog( "open" );
+	   	}
+	    
+	  });
 </script>
 <c:set var="isRegistered" value="" />
 </html>

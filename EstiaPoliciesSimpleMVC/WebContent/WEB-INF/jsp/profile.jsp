@@ -53,7 +53,7 @@
 </form> 
 
 <!-- Dialog -->
-<div id="dialogAddPolicy" class="confirmDialog" title="Basic dialog" >
+<div id="dialogAddPolicy" class="confirmDialog" style="display:none" title="Basic dialog" >
   <p id="dialogText" >Polizza aggiunta correttamente</p>
 </div>
  

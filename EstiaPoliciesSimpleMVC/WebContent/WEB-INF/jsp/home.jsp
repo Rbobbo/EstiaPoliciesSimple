@@ -13,7 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Summary</title>
 </head>
+
 <body>
+
 <c:url value="/home/logout" var="logoutUrl" />
 
 <div id="tabs">
@@ -37,6 +39,7 @@
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<button onclick="javascript:formSubmit()" class="ui-button ui-widget ui-corner-all">Logout</button>
 </form>
+
 </body>
 
 <script language="Javascript">

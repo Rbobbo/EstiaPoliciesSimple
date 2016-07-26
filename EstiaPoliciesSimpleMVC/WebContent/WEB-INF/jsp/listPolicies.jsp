@@ -26,15 +26,13 @@
         </tr>
 	</thead>
 	<tbody  class="ui-widget-content">
-        <c:forEach items="${listPoliciesAttribute}" varStatus="policyTemp" >
+        <c:forEach items="${listPoliciesAttribute}" var="policyTemp" >
         	<tr>
-	        	<td><c:out value="${listPoliciesAttribute.get(i).city}"></c:out></td>
-	        	<td><c:out value="${listPoliciesAttribute.get(i).pasengernumber}"></c:out> </td>
-	        	<td>
-	        		<fmt:formatDate pattern="dd/MM/yyyy" value="${listPoliciesAttribute.get(i).datestart}" />
-	        	</td>
-	        	<td> <fmt:formatDate pattern="dd/MM/yyyy" value="${listPoliciesAttribute.get(i).datefinish}" /></td>
-	        	<td>link</td>
+	        	<td> <c:out value="${policyTemp.city}"></c:out> </td>
+	        	<td> <c:out value="${policyTemp.pasengernumber}"></c:out> </td>
+	        	<td> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datestart}" /> </td>
+	        	<td> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datefinish}" /> </td>
+	        	<td> link </td>
 	        </tr>
         </c:forEach>
     </tbody>
