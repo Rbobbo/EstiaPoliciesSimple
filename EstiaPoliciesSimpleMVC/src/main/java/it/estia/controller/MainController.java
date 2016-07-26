@@ -65,12 +65,13 @@ public class MainController
 	}
 	
 	@RequestMapping("/listPolicies")
-	public String loadListPolicies( @ModelAttribute("userLocal") User userLocal, Model model )
+	public String loadListPolicies( @ModelAttribute("userLocal") User userLocal, Model model,HttpServletRequest request  )
 	{
 		List<Policy> listPolicies = policyService.getPolicyList(userLocal);
-		model.addAttribute("listPolicies", listPolicies);
+		request.getSession().setAttribute("listPoliciesAttribute", listPolicies);
 		
-		return "listPolicies";
+		String view = "listPolicies";
+		return view;
 	}
 
 }

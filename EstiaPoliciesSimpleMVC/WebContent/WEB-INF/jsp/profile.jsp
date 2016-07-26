@@ -67,8 +67,8 @@ $( function() {
  	var isOpenAddPolicyConfir = "${successAddPolicy}";
     if(isOpenAddPolicyConfir == "true")
 	{
-		 $("#head").append('<c:set var="successAddPolicy" target="session" value="false"  ></c:set>');
-		isOpenAddPolicyConfir = "${successAddPolicy}";
+		 /* $("#head").append('<c:set var="successAddPolicy" target="session" value="false"  ></c:set>');
+		isOpenAddPolicyConfir = "${successAddPolicy}"; */
 		$("#dialogText").text(" Polizza aggiunta correttamente");
 		$( "#dialogAddPolicy" ).dialog( "open" );
    	}

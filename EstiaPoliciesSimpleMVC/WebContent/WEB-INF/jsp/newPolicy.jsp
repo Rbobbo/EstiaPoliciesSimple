@@ -10,7 +10,6 @@
 <body>
 <h2>Inserisci una nuova polizza</h2><br>
 <hr>
-<c:set var="isAddPolicy" value="kkkkkk"></c:set>
 <form action="<c:url value='/home/addPolicy' />"  method="POST" >
 	<div id="head">
 		<label class="head" id="codeHead" ></label>
