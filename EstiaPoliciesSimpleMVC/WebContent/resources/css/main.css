@@ -1,0 +1,7 @@
+@CHARSET "ISO-8859-1";
+
+#newPolicyForm .error
+{
+  color:#FB3A3A;
+  font-weight:bold;
+}

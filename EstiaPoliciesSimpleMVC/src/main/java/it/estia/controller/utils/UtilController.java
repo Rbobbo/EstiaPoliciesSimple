@@ -10,10 +10,12 @@ public class UtilController
 		String errorFormatted = "";
 		if( !errorList.isEmpty() )
 		{
-			errorFormatted = "";
-			for (String errorTemp : errorList) {
-				errorFormatted += "->"+errorTemp+"<br>";
+			errorFormatted = "<ul>";
+			for (String errorTemp : errorList)
+			{
+				errorFormatted += "<li>"+errorTemp+"</li>";
 			}
+			errorFormatted += "</ul>";
 		}
 		
 		return errorFormatted;

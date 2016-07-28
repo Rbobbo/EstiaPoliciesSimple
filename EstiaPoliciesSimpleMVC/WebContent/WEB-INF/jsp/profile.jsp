@@ -3,12 +3,6 @@
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<!-- Include jquery -->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-	<!-- -------- -->
-	
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Insert title here</title>
@@ -61,21 +55,19 @@
 	
 	<!-- SCRIPT -->
 	<script>
-	$( function() {
-	    $( ".confirmDialog" ).dialog({
-	      autoOpen: false
-	    });
-	 	var isOpenAddPolicyConfir = "${successAddPolicy}";
-	    if(isOpenAddPolicyConfir == "true")
-		{
-			 /* $("#head").append('<c:set var="successAddPolicy" target="session" value="false"  ></c:set>');
-			isOpenAddPolicyConfir = "${successAddPolicy}"; */
-			$("#dialogText").text(" Polizza aggiunta correttamente");
-			$( "#dialogAddPolicy" ).dialog( "open" );
-	   	}
-	  });
-	
 		$("#codeHead").text("${userLocal.logincode}");
+		
+		$( function() {
+		    $( ".confirmDialog" ).dialog({
+		      autoOpen: false
+		    });
+		 	var isOpenAddPolicyConfir = "${successAddPolicy}";
+		    if(isOpenAddPolicyConfir == "true")
+			{
+				$("#dialogText").text("Polizza aggiunta correttamente");
+				$("#dialogAddPolicy").dialog( "open" );
+		   	}
+		});
 		
 		$( function()
 		{

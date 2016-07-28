@@ -23,11 +23,11 @@
 				<table>
 					<tr>
 						<td>Utente:</td>
-						<td><input type='text' name='username' value =""></td>
+						<td><input type='text' name='username' value ="riccardo.bobbo@gmail.com"></td>
 					</tr>
 					<tr>
 						<td>Password:</td>
-						<td><input type='password' name='password' value="" /></td>
+						<td><input type='password' name='password' value="prova123" /></td>
 					</tr>
 					<tr>
 						<td colspan='2'><br><input class="ui-button ui-widget ui-corner-all" type="submit" value="Login"></td>
@@ -106,7 +106,8 @@
 		/* handling dialog */
 		$( function() {
 		    $( ".confirmDialog" ).dialog({
-		      autoOpen: false
+		      autoOpen: false,
+		      width: 450
 		    });
 		 	var isOpenRegisteredConfirm = "${isRegistered}";
 		    if(isOpenRegisteredConfirm == "true")
