@@ -61,10 +61,10 @@
 		    $( ".confirmDialog" ).dialog({
 		      autoOpen: false
 		    });
-		 	var isOpenAddPolicyConfir = "${successAddPolicy}";
-		    if(isOpenAddPolicyConfir == "true")
+		 	var messageConfirm = "${confirmMessageAttribute}";
+		    if(messageConfirm != "")
 			{
-				$("#dialogText").text("Polizza aggiunta correttamente");
+				$("#dialogText").text(messageConfirm);
 				$("#dialogAddPolicy").dialog( "open" );
 		   	}
 		});

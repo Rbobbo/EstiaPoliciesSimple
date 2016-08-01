@@ -11,7 +11,7 @@
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 		<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-	    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+		<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 	    <!-- -------------------------- -->
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

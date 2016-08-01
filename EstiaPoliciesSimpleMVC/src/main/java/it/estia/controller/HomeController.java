@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.estia.controller.utils.UtilController;
 import it.estia.entity.Policy;
 import it.estia.entity.User;
 import it.estia.entity.service.PolicyService;
@@ -34,13 +35,6 @@ public class HomeController
 	@Autowired
 	PolicyService policyService;
 	
-//	@InitBinder
-//	public void initBinder(WebDataBinder binder) {
-//	    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//	    sdf.setLenient(true);
-//	    binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-//	}
-	
 	@RequestMapping( method = RequestMethod.GET)
 	public String login(HttpSession session,HttpServletRequest req, ModelMap model) {
 	    AuthenticationException ase = (AuthenticationException) session.getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
@@ -51,7 +45,7 @@ public class HomeController
 	    return "home";
 	}
 	
-//	User profile  handling 
+//	--------- User profile  handling ---------
 	
 	@RequestMapping("/profile")
 	public String profileLoadLight()
@@ -65,9 +59,8 @@ public class HomeController
 	{
 		ModelAndView model = new ModelAndView();
 		
-//		model.addObject("isOkSave","true");
-		
 		User userUpdated = userService.updateUser(userLocal);
+		session.setAttribute(UtilController.CONFIRM_MESSAGE_ATTRIBUTE,"Utente modificato correttamente");
 		session.setAttribute("userLocal", userUpdated);
 		
 		model.setViewName("/home");
@@ -91,7 +84,7 @@ public class HomeController
 		ModelAndView model = new ModelAndView();
 		policyToAdd.setUserid(userLocal.getId());
 		policyService.addPolicy(policyToAdd);
-		session.setAttribute("successAddPolicy", "true");
+		session.setAttribute(UtilController.CONFIRM_MESSAGE_ATTRIBUTE, "Polizza aggiunta correttamente");
 		
 		model.setViewName("redirect:/home");
 		return model;
@@ -105,6 +98,6 @@ public class HomeController
 		model.addAttribute("listPoliciesAttribute", listPolicies);
 		
 		String view = "listPolicies";
-		return "listPolicies";
+		return view;
 	}
 }

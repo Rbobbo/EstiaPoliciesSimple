@@ -2,6 +2,13 @@
 
 #newPolicyForm .error
 {
-  color:#FB3A3A;
-  font-weight:bold;
+  border-color: #ff5c5c;
+}
+
+label.error
+{
+	color:red;
+	font-family:verdana, Helvetica;
+	font-size: small;
+	display: none;
 }

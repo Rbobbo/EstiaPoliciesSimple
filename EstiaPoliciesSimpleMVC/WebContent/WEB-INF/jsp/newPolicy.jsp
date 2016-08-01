@@ -1,13 +1,12 @@
 <html>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<head>
-	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 <title>Inserisci una nuova polizza</title>
 </head>
 <body>
 <h2>Inserisci una nuova polizza</h2><br>
 <hr>
-<form id="newPolicyForm" action="<c:url value='/home/addPolicy' />" method="POST" novalidate="novalidate" >
+<form id="newPolicyForm" action="<c:url value='/home/addPolicy' />" method="POST" >
 	<div id="head">
 		<label class="head" id="codeHead" ></label>
 	</div>
@@ -15,19 +14,19 @@
 	<table>
 		<tr>
 			<td><label class="profileLabel" >Città : </label></td>
-			<td><input name="city" id="cityInputInputId" class="profileEditInput" ></td>
+			<td><input name="city" id="cityInputInputId" class="profileEditInput" placeholder="Roma, Venezia, Boogna..." ></td>
 		</tr>
 		<tr>
 			<td><label class="profileLabel" >Data inizio : </label></td>
-			<td><input type="text" id="datestartInputId" name="datestart"  ></td>
+			<td><input type="text" id="datestartInputId" name="datestart" placeholder="gg/MM/aaaa"  ></td>
 		</tr>
 		<tr>
 			<td><label class="profileLabel" >Data di fine : </label></td>
-			<td><input type="text" id="datefinishInputId" name="datefinish" ></td>
+			<td><input type="text" id="datefinishInputId" name="datefinish" placeholder="gg/MM/aaaa" ></td>
 		</tr>
 		<tr>
 			<td><label class="profileLabel" >Numero passeggeri : </label></td>
-			<td><input type="text" id="pasengernumberInputId" name="pasengernumber" size="5"></td>
+			<td><input type="text" id="pasengernumberInputId" name="pasengernumber" maxlength="5" size="5"></td>
 		</tr>
 	</table>
 	<br>
@@ -38,67 +37,91 @@
 
 <script>
 
-	$( window ).load(function()
-	{
-		$("#datestartInputId").datepicker({ dateFormat: 'dd/MM/yyyy' })
-		$("#datefinishInputId").datepicker({ dateFormat: 'dd/MM/yyyy' })
-		$("#isAddPolicy").val("");
-
-		$("#codeHead").text("${userLocal.logincode}");
-		
-		
-		// When the browser is ready...
-		$(function()
-		{
-			
-			// Setup form validation on the #register-form element
-			$("#newPolicyForm").validate({
-			
-				// Specify the validation rules
-				rules: {
-					cityInputInputId: "required",
-					datestartInputId: "required"
-				},
-					
-				errorClass: "error",
-					
-				submitHandler: function(form)
-				{
-					form.submit();
-				},
-				
-				//azioni da intraprendere in caso di errore
-				highlight: function(element, errorClass){
-					alert("element"+element);
-				$(element).parent("td").addClass(errorClass);
-				},
-				//e quando l'errore viene risolto
-				unhighlight: function(element, errorClass){
-				$(element).parent("td").removeClass(errorClass);
-				}
-
-			});
-			
-			//-------------------
-			
-			
-			//-----------			
-		});
-   });
 	$( document ).ready(function()
-	{
-		$("#newPolicyForm").on('submit', function(e)
+	{	
+		/* Validation */
+	    $('#newPolicyForm').validate(
+		{ // initialize the plugin
+			 rules: {
+	        	city: {
+	                required: true
+	            },
+				datestart: {
+	                required: true,
+	                dateCustomIta: true
+	            },
+				datefinish: {
+	                required: true,
+	                dateCustomIta: true
+	            },
+				pasengernumber: {
+	                required: true
+	            }
+	        },
+			
+			messages: 
 			{
-				var isvalidate=$("#newPolicyForm").valid();
-				if(isvalidate)
+				city: 
 				{
-					e.preventDefault();
+					required: " Campo obbligatorio"
+				},
+				datestart: 
+				{
+					required: " Campo obbligatorio",
+					date: "Formato data non valido"
+				},
+				datefinish: 
+				{
+					required: " Campo obbligatorio",
+					date: "Formato data non valido"
+				},
+				pasengernumber: 
+				{
+					required: " Campo obbligatorio"
 				}
 				
-			});
+			},
+			
+			submitHandler: function(form) {
+				form.submit();
+			}
+	       
+	    });
+		// Custom date for validation
+		$.validator.addMethod(
+			"dateCustomIta",
+			function ( value, element ) {
+				var bits = value.match( /([0-9]+)/gi ), str;
+				if ( ! bits )
+					return this.optional(element) || false;
+				str = bits[ 1 ] + '/' + bits[ 0 ] + '/' + bits[ 2 ];
+				return this.optional(element) || !/Invalid|NaN/.test(new Date( str ));
+			}
+		);
 		
-	});
+		/* Set datepicker */
+		$("#datestartInputId").datepicker({ dateFormat: 'dd/mm/yy' });
+		$("#datefinishInputId").datepicker({ dateFormat: 'dd/mm/yy' });
+		$("#isAddPolicy").val("");
+		/* Head info */
+		$("#codeHead").text("${userLocal.logincode}");
+		/* Handling validation on submit */
+		$("#newPolicyForm").on('submit', function(e)
+		{
+			var isvalidate=$("#newPolicyForm").valid();
+			if(isvalidate)
+			{
+				
+			}
+			else
+			{
+				e.preventDefault();
+			}
+			
+		});
 	
+    });
+		
 </script>
 </body>
 </html>
