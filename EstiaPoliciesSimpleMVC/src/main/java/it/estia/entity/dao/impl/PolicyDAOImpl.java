@@ -33,4 +33,13 @@ public class PolicyDAOImpl extends DaoAbstract implements PolicyDAO
 		return result;
 	}
 
+	@Override
+	public Policy getPolicy(int id)
+	{
+		Policy result = new Policy();
+		result = (Policy) getSessionLocal().
+						createQuery("from Policy where id = ?").setParameter(0, id).uniqueResult();
+		return result;
+	}
+
 }

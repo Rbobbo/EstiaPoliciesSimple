@@ -32,7 +32,10 @@
 	        	<td> <c:out value="${policyTemp.pasengernumber}"></c:out> </td>
 	        	<td> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datestart}" /> </td>
 	        	<td> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datefinish}" /> </td>
-	        	<td> link </td>
+	        	<td> <a  href="<c:url value='/home/generatePdf?policyId=${policyTemp.id}' />" > 
+	        			<img class="imgDownloadPdf" alt="Download pdf" src="<c:url value="/resources/img/pdf.png" />" />
+	        		</a>
+	        	</td>
 	        </tr>
         </c:forEach>
     </tbody>
@@ -47,7 +50,6 @@
 $( "#reloadButton" ).click(function() {
 	$("#listPoliciesDiv").load("listPolicies");
 });
-
 
 </script>
 

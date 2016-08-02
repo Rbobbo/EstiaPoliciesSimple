@@ -27,7 +27,7 @@ public class LoginController
 	@Autowired
 	UserService userService;
 	
-//	Register handlers
+//	------------ User Register ------------ 
 	@RequestMapping(value = "/login/register", method = RequestMethod.POST)
 	public ModelAndView addUser(@ModelAttribute User userToAdd)
 	{
@@ -37,11 +37,11 @@ public class LoginController
 		ArrayList<String> confirmBeforePersist = isOkRegisterInfo(userToAdd);
 		if(confirmBeforePersist.equals(""))
 		{
-//			userToAdd.setRole("ROLE_USER");
-//			userService.addUser(userToAdd);
-//			
-//			model.addObject("isRegistered", "true");
-//			model.addObject("utenteAggiunto", userToAdd.getLogincode());
+			userToAdd.setRole("ROLE_USER");
+			userService.addUser(userToAdd);
+			
+			model.addObject("isRegistered", "true");
+			model.addObject("utenteAggiunto", userToAdd.getLogincode());
 		}
 		else
 		{

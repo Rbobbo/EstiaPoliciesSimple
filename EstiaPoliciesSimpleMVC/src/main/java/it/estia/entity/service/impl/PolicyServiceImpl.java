@@ -31,4 +31,12 @@ public class PolicyServiceImpl implements PolicyService
 		return policyDao.getPolicyList(userRife);
 	}
 
+	@Override
+	@Transactional
+	public Policy getPolicy(int id)
+	{
+		
+		return policyDao.getPolicy(id);
+	}
+
 }

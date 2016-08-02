@@ -12,3 +12,9 @@ label.error
 	font-size: small;
 	display: none;
 }
+
+img.imgDownloadPdf
+{
+	height: 20px;
+	width: 20px;
+}

@@ -11,5 +11,7 @@ public interface PolicyDAO
 	public Policy addPolicy(Policy policyToAdd);
 	
 	public List<Policy> getPolicyList(User userRife);
+	
+	public Policy getPolicy(int id);
 
 }

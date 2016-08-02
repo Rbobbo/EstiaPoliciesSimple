@@ -10,5 +10,7 @@ public interface PolicyService
 	public void addPolicy(Policy policyToAdd);
 	
 	public List<Policy> getPolicyList(User userRife);
+	
+	public Policy getPolicy(int id);
 
 }

@@ -59,8 +59,8 @@
 			{
 				$("#listPoliciesDiv").load("listPolicies");
 			});
-		/* $( document ).ready(function() */
-	 	$( window ).load(function() 
+		$( document ).ready(function()
+	 	/* $( window ).load(function()  */
 		{
 			$("#profileDiv").load("profile");
 			$("#newPolicyDiv").load("newPolicy");
