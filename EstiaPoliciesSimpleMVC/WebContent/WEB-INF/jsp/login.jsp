@@ -16,6 +16,10 @@
 	</head>	
 	<!-- BODY -->
 	<body>
+		
+		<div class="imgFront" id="imgFrontId">
+		  <p> <img class="imgEstia" src="<c:url value="/resources/img/EstiaLogo.png" />" /> </p>
+		</div>
 		<h2>Login</h2><br>
 		<form name='loginForm'
 				action="<c:url value='/j_spring_security_check' />" method="POST">
@@ -23,11 +27,11 @@
 				<table>
 					<tr>
 						<td>Utente:</td>
-						<td><input type='text' name='username' value ="riccardo.bobbo@gmail.com"></td>
+						<td><input type='text' id="usernameid" name='username' class="loginClass" value ="riccardo.bobbo@gmail.com"></td>
 					</tr>
 					<tr>
 						<td>Password:</td>
-						<td><input type='password' name='password' value="prova123" /></td>
+						<td><input type='password' name='password' class="loginClass" value="prova123" /></td>
 					</tr>
 					<tr>
 						<td colspan='2'><br><input class="ui-button ui-widget ui-corner-all" type="submit" value="Login"></td>
@@ -73,6 +77,8 @@
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		</form>
 		
+
+		
 		<!-- Dialog -->
 		<div id="dialogAttentionDiv" class="confirmDialog" style="display:none" title="ATTENZIONE" >
 	  		<p id="attentionDialogTextP" ></p>
@@ -85,6 +91,23 @@
 	
 	<!-- SCRIPT -->
 	<script language="Javascript">
+	
+		$( function()
+		{
+			$( ".imgFront" ).css( "opacity", 1 );
+			$( ".imgFront" ).css( "float", "right" );
+			$("#usernameid").focus();
+		});
+	  
+	  
+		$( ".loginClass" ).focus(function()
+		{
+			$( ".imgFront" ).fadeTo( "slow", 1 );
+		});
+		$( ".regForm" ).focus(function()
+		{
+			$( ".imgFront" ).fadeTo( "slow", 0.2 );
+		});
 	
 		var isRegJavascript = "${isRegistered}";
 		if(isRegJavascript != null && isRegJavascript != "")

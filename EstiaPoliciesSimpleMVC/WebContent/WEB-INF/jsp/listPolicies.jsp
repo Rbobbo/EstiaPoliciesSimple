@@ -19,10 +19,10 @@
     <thead class="ui-widget-header">
         <tr>
             <th data-column-id="city">Citt&#224; </th>
-            <th data-column-id="pasengernumber">Numero passeggeri</th>
+            <th data-column-id="pasengernumber">N&#176; Passeggeri</th>
             <th data-column-id="datestart" >Data inizio</th>
             <th data-column-id="datefinish" >Data fine</th>
-            <th data-column-id="link" data-formatter="link" data-sortable="false">Link</th>
+            <th data-column-id=link data-formatter="link" data-sortable="false">Pdf</th>
         </tr>
 	</thead>
 	<tbody  class="ui-widget-content">
@@ -34,8 +34,7 @@
 	        	<td> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datefinish}" /> </td>
 	        	<td> <a  href="<c:url value='/home/generatePdf?policyId=${policyTemp.id}' />" > 
 	        			<img class="imgDownloadPdf" alt="Download pdf" src="<c:url value="/resources/img/pdf.png" />" />
-	        		</a>
-	        	</td>
+	        		</a> </td>
 	        </tr>
         </c:forEach>
     </tbody>

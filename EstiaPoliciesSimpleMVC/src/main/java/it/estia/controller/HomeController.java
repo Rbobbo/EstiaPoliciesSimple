@@ -48,12 +48,16 @@ public class HomeController
 	PolicyService policyService;
 	
 	@RequestMapping( method = RequestMethod.GET)
-	public String login(HttpSession session,HttpServletRequest req, ModelMap model) {
-	    AuthenticationException ase = (AuthenticationException) session.getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
-	    if (ase != null) {
+	public String login(HttpSession session,HttpServletRequest req, ModelMap model)
+	{
+	    AuthenticationException ase = 
+	    		(AuthenticationException) session.getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
+	    if (ase != null)
+	    {
 	        model.addAttribute("errorMsg",ase.getMessage());
 	        return "login";
 	    }
+	    
 	    return "home";
 	}
 	
@@ -90,8 +94,7 @@ public class HomeController
 	
 	@RequestMapping("/addPolicy")
 	public ModelAndView policyAdd( @ModelAttribute Policy policyToAdd,
-					@ModelAttribute("userLocal") User userLocal ,
-					HttpSession session)
+					@ModelAttribute("userLocal") User userLocal , HttpSession session)
 	{
 		ModelAndView model = new ModelAndView();
 		policyToAdd.setUserid(userLocal.getId());
@@ -131,13 +134,9 @@ public class HomeController
 			e.printStackTrace();
 		}
 		
-//		response.setContentType("application/octet-stream");
 		response.setContentType("application/pdf");
-//		response.setHeader("Content-Disposition", String.format("inline; filename=\"" + file.getName() +"\""));
-		 
-		  /* "Content-Disposition : attachment" will be directly download, may provide save as popup, based on your browser setting*/
-//        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
-		response.setHeader("Content-Disposition", String.format("attachment; filename=\"" + file.getName() +"\""));
+		response.setHeader("Content-Disposition",
+					String.format("attachment; filename=\"" + file.getName() +"\""));
          
         response.setContentLength((int)file.length());
  
@@ -145,15 +144,12 @@ public class HomeController
 		try
 		{
 			inputStream = new BufferedInputStream(new FileInputStream(file));
-			//Copy bytes from source to destination(outputstream in this example), closes both streams.
 			FileCopyUtils.copy(inputStream, response.getOutputStream());
 			
 		}
 		catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
- 
 		
 	}
 	
