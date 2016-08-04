@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <!-- -------- -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

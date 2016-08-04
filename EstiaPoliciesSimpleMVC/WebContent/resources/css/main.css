@@ -18,3 +18,54 @@ img.imgDownloadPdf
 	height: 20px;
 	width: 20px;
 }
+
+h2
+{
+	border-bottom-style: groove;
+	color: white;
+}
+
+.loginClass
+{
+    border: 1px solid gray;
+    border-radius: 1px;
+    padding: 5px;
+}
+.loginClass:focus
+{
+    background-color: lightblue;
+}
+
+.imgFront
+{
+    border-bottom-style: ridge;
+}
+html
+{
+	background-color: #666;
+	color: white;
+}
+.ui-tabs-nav
+{
+	background-color: #778;
+}
+.tabs-class-custom
+{
+	background-color: #778;
+	
+}
+label
+{
+	color: white;
+	
+}
+label.head
+{
+	text-decoration: underline;
+}
+.ui-tabs
+{
+	background-color: #778;
+}
+
+

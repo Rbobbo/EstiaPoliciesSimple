@@ -58,8 +58,9 @@ public class MainController
 	}
 	
 	@RequestMapping("/newPolicy")
-	public String policyLoad( @ModelAttribute("userLocal") User userLocal )
+	public String policyLoad( @ModelAttribute("userLocal") User userLocal, HttpServletRequest request )
 	{
+		request.getSession().setAttribute("userLocal", userLocal);
 		
 		return "newPolicy";
 	}

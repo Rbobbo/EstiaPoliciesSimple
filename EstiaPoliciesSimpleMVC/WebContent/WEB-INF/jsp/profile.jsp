@@ -15,7 +15,7 @@
 		<div id="head">
 			<label class="head" id="codeHead" ></label>
 		</div>
-		<!-- ------------ --><hr><br><!-- ------------ -->
+		<!-- ------------ --><br><!-- ------------ -->
 		<table>
 			<tr>
 				<td><label class="profileLabel" >Nome : </label></td>

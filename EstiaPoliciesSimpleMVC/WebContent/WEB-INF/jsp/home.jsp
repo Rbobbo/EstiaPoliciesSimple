@@ -47,10 +47,6 @@
 	
 	<script language="Javascript">
 		
-		$(".profileTab").click( function() 
-			{
-				$("#profileDiv").load("profile");
-			});
 		$(".policyTab").click( function() 
 			{
 				$("#newPolicyDiv").load("newPolicy");

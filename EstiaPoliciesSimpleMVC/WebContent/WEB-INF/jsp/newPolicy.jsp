@@ -5,12 +5,11 @@
 </head>
 <body>
 <h2>Inserisci una nuova polizza</h2><br>
-<hr>
+
 <form id="newPolicyForm" action="<c:url value='/home/addPolicy' />" method="POST" >
-	<div id="head">
-		<label class="head" id="codeHead" ></label>
-	</div>
-	<br>
+	<div id="headNewPolicy">
+		<label class="head" id="codeHeadNewPolicyId" ></label>
+	</div> <br>
 	<table>
 		<tr>
 			<td><label class="profileLabel" >Città : </label></td>
@@ -104,20 +103,15 @@
 		$("#datefinishInputId").datepicker({ dateFormat: 'dd/mm/yy' });
 		$("#isAddPolicy").val("");
 		/* Head info */
-		$("#codeHead").text("${userLocal.logincode}");
+		$("#codeHeadNewPolicyId").text("${userLocal.logincode}");
 		/* Handling validation on submit */
 		$("#newPolicyForm").on('submit', function(e)
 		{
 			var isvalidate=$("#newPolicyForm").valid();
-			if(isvalidate)
-			{
-				
-			}
-			else
+			if(!isvalidate)
 			{
 				e.preventDefault();
 			}
-			
 		});
 	
     });

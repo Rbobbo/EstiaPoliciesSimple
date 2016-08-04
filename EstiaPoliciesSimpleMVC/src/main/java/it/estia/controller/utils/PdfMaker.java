@@ -25,7 +25,7 @@ public class PdfMaker {
   public String getPdf(Policy policyToPrint) throws FileNotFoundException, DocumentException
   {
 	  SimpleDateFormat sf = new SimpleDateFormat("dd-mm-yy_hhmmss");
-	  String tempdir = System.getProperty("java.io.tmpdir")+"//"+sf.format(new Date())+"_"+policyToPrint.getCity();
+	  String tempdir = System.getProperty("java.io.tmpdir")+"//"+sf.format(new Date())+"_"+policyToPrint.getCity()+".pdf";
 	  
 	  Document document = new Document();
 	  PdfWriter.getInstance(document, new FileOutputStream(tempdir));
