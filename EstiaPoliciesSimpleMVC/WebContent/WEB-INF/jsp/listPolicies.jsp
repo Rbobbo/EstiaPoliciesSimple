@@ -12,10 +12,10 @@
 	<body>
 	
 		<h2>Lista Polizze</h2>
-		<input class="ui-button ui-widget ui-corner-all" type="button" id="reloadButton" value="Aggiorna" style="float: right;"><br><br><br>
 		<div id="head">
-			<label class="head" id="codeHead" ></label>
-		</div>
+			<input class="ui-button ui-widget ui-corner-all" type="button" id="reloadButton" value="Aggiorna" style="float: right;"><br>
+			<label class="head" id="codeHeadListId" ></label>
+		</div><br>
 		<table id="list-policies" class="table table-condensed table-hover table-striped" width="90%" align="center"  >
 		    <thead class="ui-widget-header">
 		        <tr>
@@ -29,11 +29,11 @@
 			<tbody  class="ui-widget-content">
 		        <c:forEach items="${listPoliciesAttribute}" var="policyTemp" >
 		        	<tr>
-			        	<td align="left"> <c:out value="${policyTemp.city}"></c:out> </td>
-			        	<td align="center"> <c:out value="${policyTemp.pasengernumber}"></c:out> </td>
-			        	<td align="center"> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datestart}" /> </td>
-			        	<td align="center"> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datefinish}" /> </td>
-			        	<td align="right"> <a  href="<c:url value='/home/generatePdf?policyId=${policyTemp.id}' />" > 
+			        	<td align="left" class="listPolicyTd" > <c:out value="${policyTemp.city}"></c:out> </td>
+			        	<td align="center" class="listPolicyTd"> <c:out value="${policyTemp.pasengernumber}"></c:out> </td>
+			        	<td align="left" class="listPolicyTd"> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datestart}" /> </td>
+			        	<td align="left" class="listPolicyTd"> <fmt:formatDate pattern="dd/MM/yyyy" value="${policyTemp.datefinish}" /> </td>
+			        	<td align="center" class="listPolicyTd"> <a  href="<c:url value='/home/generatePdf?policyId=${policyTemp.id}' />" > 
 			        			<img class="imgDownloadPdf" alt="Download pdf" src="<c:url value="/resources/img/pdf.png" />" />
 			        		</a> </td>
 			        </tr>
@@ -45,7 +45,7 @@
 	
 	<!-- Script -->
 	<script>
-		$("#codeHead").text("${userLocal.logincode}");
+		$("#codeHeadListId").text("${userLocal.logincode}");
 	
 		$( "#reloadButton" ).click(function() {
 			$("#listPoliciesDiv").load("listPolicies");

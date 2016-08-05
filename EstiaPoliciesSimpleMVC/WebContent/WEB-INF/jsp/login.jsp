@@ -28,11 +28,11 @@
 				<table>
 					<tr>
 						<td>Utente:</td>
-						<td><input type='text' id="usernameid" name='username' class="loginClass" value ="riccardo.bobbo@gmail.com"></td>
+						<td><input type='text' id="usernameid" name='username' class="loginClass" value =""></td>
 					</tr>
 					<tr>
 						<td>Password:</td>
-						<td><input type='password' name='password' class="loginClass" value="prova123" /></td>
+						<td><input type='password' name='password' class="loginClass" value="" /></td>
 					</tr>
 					<tr>
 						<td colspan='2'><br><input class="ui-button ui-widget ui-corner-all" type="submit" value="Login"></td>

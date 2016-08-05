@@ -4,7 +4,6 @@
 {
   border-color: #ff5c5c;
 }
-
 label.error
 {
 	color:red;
@@ -12,19 +11,16 @@ label.error
 	font-size: small;
 	display: none;
 }
-
 img.imgDownloadPdf
 {
 	height: 20px;
 	width: 20px;
 }
-
 h2
 {
 	border-bottom-style: groove;
 	color: white;
 }
-
 .loginClass
 {
     border: 1px solid gray;
@@ -63,9 +59,11 @@ label.head
 {
 	text-decoration: underline;
 }
+.listPolicyTd
+{
+	padding-left: 8px;
+}
 .ui-tabs
 {
 	background-color: #778;
 }
-
-
