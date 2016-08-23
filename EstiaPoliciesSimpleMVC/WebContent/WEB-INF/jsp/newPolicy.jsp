@@ -30,7 +30,7 @@
 	</table>
 	<br>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	<input class="ui-button ui-widget ui-corner-all" id="buttonAddPolicy" type="submit" value="Aggiungi">
+	<input class="ui-button ui-widget ui-corner-all" id="buttonAddPolicy" type="submit" value="Salva Polizza">
 </form> 
 </body>
 
