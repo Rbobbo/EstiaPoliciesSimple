@@ -30,14 +30,38 @@
 	</table>
 	<br>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	<input class="ui-button ui-widget ui-corner-all" id="buttonAddPolicy" type="submit" value="Salva Polizza">
-</form> 
+	<input class="ui-button ui-widget ui-corner-all" id="buttonAddPolicy" type="button" value="Salva Polizza">
+</form>
+	<div id="confirmAddPolicy" title="Conferma operazione">
+	  <p><span class="" style="float:left; margin:5px 5px 5px 0;"></span>Aggiungere la polizza ?</p>
+	</div>
 </body>
 
 <script>
-
-	$( document ).ready(function()
-	{	
+	var confirmAddPolicy = "false";
+	$( document ).ready(  function()
+	{
+		$( "#confirmAddPolicy" ).dialog({
+			autoOpen: false,
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true,
+			buttons: {
+				"Ok": function() {
+					$( "#confirmAddPolicy" ).dialog( "close" );
+					var isvalidate = $("#newPolicyForm").valid();
+					if(isvalidate)
+					{
+						$("#newPolicyForm").submit();
+					}
+				},
+				Cancel: function() {
+					$( "#confirmAddPolicy" ).dialog( "close" );
+				}
+			}
+		});
+		
 		/* Validation */
 	    $('#newPolicyForm').validate(
 		{ // initialize the plugin
@@ -80,7 +104,6 @@
 				}
 				
 			},
-			
 			submitHandler: function(form) {
 				form.submit();
 			}
@@ -105,13 +128,9 @@
 		/* Head info */
 		$("#codeHeadNewPolicyId").text("${userLocal.logincode}");
 		/* Handling validation on submit */
-		$("#newPolicyForm").on('submit', function(e)
+		$("#buttonAddPolicy").on('click', function(e)
 		{
-			var isvalidate=$("#newPolicyForm").valid();
-			if(!isvalidate)
-			{
-				e.preventDefault();
-			}
+			$( "#confirmAddPolicy" ).dialog( "open" );
 		});
 	
     });
