@@ -77,6 +77,12 @@ public class UserDAOImpl implements UserDAO {
 			return this.sessionFactory.openSession();
 		}
 	}
+
+	@Override
+	public User updateUser(User userToUpdate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
